@@ -1,6 +1,7 @@
 <?php
 
     require_once "validador_acesso.php";
+    
 ?>
 
 <html>
@@ -66,6 +67,16 @@
                       <label>Descrição</label>
                       <textarea name = "descricao" class="form-control" rows="3"></textarea>
                     </div>
+
+                    <?php if(isset($_SESSION['campos_preenchidos']) && $_SESSION['campos_preenchidos'] == 'NAO') { ?>
+
+                      <div class="text-danger">
+                        Preencha todos os campos antes de enviar.
+                      </div>
+
+                      <?php unset($_SESSION['campos_preenchidos']); ?>
+
+                    <?php } ?>
 
                     <div class="row mt-5">
                       <div class="col-6">
